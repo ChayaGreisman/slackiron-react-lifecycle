@@ -1,26 +1,40 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { Nav, MessageContainer, ChannelsContainer } from './components'
+import { fetchChannels } from './requests';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  state = {
+    channels: [],
+    selectedChannel: null
+  }
+
+  componentDidMount(){
+    fetchChannels()
+      .then(channels => this.setState({ channels}) )
+  }
+
+  selectChannel = id => {
+    this.setState({ selectedChannel: id })
+  }
+
+  render() {
+    console.log(this.state)
+    let selectedChannelInfo = this.state.channels.find(channel => channel.id === this.state.selectedChannel)
+    return (
+      <div className="App">
+        <Nav />
+        <div className="simple-flex-row main">
+          <ChannelsContainer 
+            selectChannel={this.selectChannel}
+            selectedChannel={this.state.selectedChannel} 
+            channels={this.state.channels}/>
+          <MessageContainer 
+            selectedChannel={selectedChannelInfo} />
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;
