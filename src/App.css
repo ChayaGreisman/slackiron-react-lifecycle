@@ -50,3 +50,7 @@ h1.icon, .active.channel {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+.channel {
+  cursor: pointer;
+}

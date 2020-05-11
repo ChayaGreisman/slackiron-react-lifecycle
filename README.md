@@ -52,6 +52,7 @@ After cloning down the project:
 
 
 ### Additional Files
+- `requests.js` has prepared and exported fetch requests for you. Make sure you're importing them and using them correctly. You shouldn't need additional ones unless you wanna get fancy and add some new features (totally encouraged).
 - `db.json` stores the data for our json-server. Check it out to make sure you know the format of the data.  
 
 
