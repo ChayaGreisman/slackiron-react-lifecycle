@@ -10,21 +10,19 @@ class MessageContainer extends React.Component {
         intervalId: null // advanced deliverable
     }
 
-    componentDidUpdate(prevProps, prevState){
-        if(this.props.selectedChannel 
-            && (!prevProps.selectedChannel
-            || prevProps.selectedChannel.id !== this.props.selectedChannel.id)){
-            fetchChannelMessages(this.props.selectedChannel.id)
-            .then(messages => this.setState({ messages }))
-        }
+    renderChannelInfo = () => {
+        return (
+            false  // TODO: what should the condition be here? why do we need a condition at all?
+                ? <div>ADD CHANNEL INFO HERE</div>
+                : <div>Please select a channel</div>
+        )
     }
 
     render(){
-        console.log(this.state)
         return (
             <div className="messages container">
                 <h2>Messages</h2>
-                <div>Channel Info goes here</div>
+                {this.renderChannelInfo()}
                 <div>
                     {this.state.messages.map(message => (
                         <Message key={message.id} {...message}/>

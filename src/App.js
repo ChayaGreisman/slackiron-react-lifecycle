@@ -5,32 +5,25 @@ import { fetchChannels } from './requests';
 
 class App extends React.Component {
   state = {
-    channels: [],
-    selectedChannel: null
+    channels: []
   }
 
-  componentDidMount(){
-    fetchChannels()
-      .then(channels => this.setState({ channels}) )
-  }
-
-  selectChannel = id => {
-    this.setState({ selectedChannel: id })
+  selectChannel = () => {
+    // TODO: What does this method need to do in order to represent the selected channel?
   }
 
   render() {
-    console.log(this.state)
-    let selectedChannelInfo = this.state.channels.find(channel => channel.id === this.state.selectedChannel)
+    
     return (
       <div className="App">
         <Nav />
         <div className="simple-flex-row main">
           <ChannelsContainer 
             selectChannel={this.selectChannel}
-            selectedChannel={this.state.selectedChannel} 
+            selectedChannel={null /** TODO:HOW SHOULD THIS BE REPRESENTED? */} 
             channels={this.state.channels}/>
           <MessageContainer 
-            selectedChannel={selectedChannelInfo} />
+            selectedChannel={null /** TODO:HOW SHOULD THIS BE CALCULATED? */} />
         </div>
       </div>
     );

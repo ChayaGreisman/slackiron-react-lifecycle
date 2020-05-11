@@ -1,19 +1,21 @@
 # SlackIron Lifecycle Lab!
-TODO
+Welcome to SlackIron! You guessed it... it's something like a Slack clone. In this app, you'll have to fetch all the channels and render them. When a user clicks on a given channel, the messages need to populate and when they select a new channel, the messages need to update. Fairly straightforward, hopefully. You have a giant hint here! *MOST* of what you'll be expected to implement will require lifecycle methods. *MOST* but potentially not all. Be meticulous in planning out how you will implement the features. 
 
-TODO
-In this app, you'll need to load songs from a json-server when a button in the Navbar is clicked and then use state and events to build a lot of other core functionality. 
+Notice in this lab, that there are `MVP` and `Stretch` deliverables. In Mod5, you'll be tasked with choosing what is Minimum Viable Product `MVP` or Stretch for your app. Sometimes tasks are included in Stretch that are easy - but are not essential to the use case of the app. Deliverables are split in this way for this lab to start your adjustment to that split. 
 
-Lastly, you will have to change code that you are not told explicitly to. Decide based on the feature/deliverable what code needs to be written or changed and then go do it! Play around with the code and test often. 
+Remember, decide based on the feature/deliverable what code needs to be written or changed and then go do it! Play around with the code and test often. 
 
 Look out for `TODO`s in comments. Use the Core Deliverables listed below to guide you and find the `TODO`s if you're feeling stuck.
 
-![alt text][core_image]
+![alt text][all_deliverables]
 
-[core_image]: ./public/SnotifyCore.gif "Core Deliverables"
+[all_deliverables]: ./public/SlackironAll.gif "All Deliverables"
 
 ## Skills and Concepts to Practice
-- TODO
+- Lifecycle Methods including `componentDidMount`, `componentDidUpdate`, and  `componentWillUnmount` 
+- Choosing what to represent in state and where
+- Defining methods, passing them as props, and invoking them
+- Using intervals
 
 ## Setup
 After cloning down the project:
@@ -42,7 +44,11 @@ After cloning down the project:
 
 ## What You Already Have
 ### Components
-- TODO
+- `App`
+- `Nav`
+- `ChannelsContainer`
+- `MessageContainer`
+- `Message`
 
 
 ### Additional Files
@@ -50,26 +56,19 @@ After cloning down the project:
 
 
 ## Deliverables 
-### Core Deliverables
-TODO HIGH LEVEL 
-- TODO
+### MVP Deliverables
+- Upon page load, the user should see all channels in the left side panel
+- When a user clicks on a channel the first time, they should see all the messages populated in the message container and the channel info at the top of the message container. 
+- When a user selects a new channel, all previous messages should disappear and new messages and channel info should appear. 
 
-### Advanced Deliverables
+### Stretch Deliverables
 If you get through all of the Core Deliverables, try your hand at the Advanced ones. Check out the gif below for how it should look. 
-- TODO
-
-![alt text][advanced_image]
-
-[advanced_image]: ./public/SnotifyAdvanced.gif "Core Deliverables"
-
-
-## Want some extra fun? 
-TODO?
-
+- In the channels list, create separate sections for `Starred` channels and `General` Channels.
+- Include a timer in the channel info of `MessageContainer` that says someting like `Been listening for {seconds} seconds`. It should update every second and start back at zero when you switch channels
 
 
 ## Resources
-- [Lifecycle Docs]()
-- [Lifecycle Visualizer]()
+- [Lifecycle Docs](https://reactjs.org/docs/state-and-lifecycle.html)
+- [Lifecycle Visualizer](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
 
 
