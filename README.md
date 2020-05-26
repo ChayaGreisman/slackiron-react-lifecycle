@@ -60,15 +60,20 @@ After cloning down the project:
 ### MVP Deliverables
 - Upon page load, the user should see all channels in the left side panel
 - When a user clicks on a channel the first time, they should see all the messages populated in the message container and the channel info at the top of the message container. 
-- When a user selects a new channel, all previous messages should disappear and new messages and channel info should appear. 
+- When a user selects a new channel, update the channel information and replace all the messages inside of Message container.
 
 ### Stretch Deliverables
 If you get through all of the Core Deliverables, try your hand at the Advanced ones. Check out the gif below for how it should look. 
 - In the channels list, create separate sections for `Starred` channels and `General` Channels.
 - Include a timer in the channel info of `MessageContainer` that says someting like `Been listening for {seconds} seconds`. It should update every second and start back at zero when you switch channels
 
+## Helpful Hints and Reminders
+- `componentDidMount` runs *once* right after the component initially mounts to the DOM. It's helpful for anything that needs to happen once and at the very beginning of the component's life, like initial fetches, subscribing to channels, and setting intervals.
+- `componentDidUpdate` runs anytime state or props change and receives two arguments: `prevProps` and `prevState`. Be careful setting state inside of componentDidUpdate - if you set state during every time componentDidUpdate runs you'll hit a `maximum call depth exceeded` error. It's used anytime you need to compare prevProps to current props, or prevState to the current state.
+- `componentWillUnmount` runs right *before* the component comes off of the screen and only once. It's used for clean up - like unsubscribing to channels or clearing intervals. 
 
 ## Resources
+- [Prior Video: Watch up to min 30](https://youtu.be/zBvVrN_FiX8)
 - [Lifecycle Docs](https://reactjs.org/docs/state-and-lifecycle.html)
 - [Lifecycle Visualizer](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
 
