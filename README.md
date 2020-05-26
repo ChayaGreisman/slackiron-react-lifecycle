@@ -18,8 +18,7 @@ Look out for `TODO`s in comments. Use the Core Deliverables listed below to guid
 - Using intervals
 
 ## Setup
-After cloning down the project:
-- Run `git checkout -b yourname` in your terminal to create your own branch
+After pulling your cohort repo and navigating to the correct folder:
 - Run `npm install` in your terminal
 - Run `npm start` and a JSON server will spin up a mock back-end API and you can access the data at `http://localhost:6001/channels`. Your react application will also start, on port `6002`. The response should contain an array of objects that are structured as follows:
 ```
