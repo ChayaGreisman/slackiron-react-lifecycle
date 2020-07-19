@@ -5,11 +5,25 @@ import { fetchChannels } from './requests';
 
 class App extends React.Component {
   state = {
-    channels: []
+    channels: [],
+    channelSelected: null
   }
 
-  selectChannel = () => {
-    // TODO: What does this method need to do in order to represent the selected channel?
+  componentDidMount(){
+    fetch('http://localhost:6001/channels')
+    .then(resp=>resp.json())
+    .then(channels=> this.setState({channels}))
+  }
+
+  selectChannel = (channelId) => {
+    this.setState({channelSelected: channelId},
+      ()=> console.log(this.state.channelSelected)
+    )
+  }
+
+  selectedChannelObject = () => {
+    let selected = this.state.channels.find(channel=>channel.id === this.state.channelSelected)
+    return selected
   }
 
   render() {
@@ -20,10 +34,10 @@ class App extends React.Component {
         <div className="simple-flex-row main">
           <ChannelsContainer 
             selectChannel={this.selectChannel}
-            selectedChannel={null /** TODO:HOW SHOULD THIS BE REPRESENTED? */} 
+            selectedChannel={this.state.channelSelected} 
             channels={this.state.channels}/>
           <MessageContainer 
-            selectedChannel={null /** TODO:HOW SHOULD THIS BE CALCULATED? */} />
+            selectedChannel={this.state.channelSelected} channelObject={this.selectedChannelObject()}/>
         </div>
       </div>
     );
